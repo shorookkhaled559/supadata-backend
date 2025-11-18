@@ -6,6 +6,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 app.get('/youtube-metadata', async (req, res) => {
     const { id } = req.query;
     if (!id) return res.status(400).json({ error: "Missing video id" });
